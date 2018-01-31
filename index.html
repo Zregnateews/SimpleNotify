@@ -4,51 +4,72 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
+        <title>Simple Notify Examples</title>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" type="text/css" href="simpleNotify.css" />
         <style type="text/css">
-            #buttonsHolder button{
+            .buttonsHolder button{
                 display:block;
                 margin-bottom: 15px;
                 width:400px;
-                height:40px;
+                padding:10px;
                 border:1px solid #d6e9c6;
                 color:#3c763d;
                 background-color:#dff0d8;
                 border-color:#d6e9c6;
             }
-            #buttonsHolder button#addSuccess{
+            .buttonsHolder button#addSuccess,
+            .buttonsHolder button#addSuccess2{
                 color:#3c763d;
                 background-color:#dff0d8;
                 border-color:#d6e9c6;
             }
-            #buttonsHolder button#addInfo{
+            .buttonsHolder button#addInfo,
+            .buttonsHolder button#addInfo2{
                 color:#31708f;
                 background-color:#d9edf7;
                 border-color:#bce8f1;
             }
-            #buttonsHolder button#addWarning{
+            .buttonsHolder button#addWarning,
+            .buttonsHolder button#addWarning2{
                 color:#8a6d3b;
                 background-color:#fcf8e3;
                 border-color:#faebcc;
             }
-            #buttonsHolder button#addDanger{
+            .buttonsHolder button#addDanger,
+            .buttonsHolder button#addDanger2{
                 color:#a94442;
                 background-color:#f2dede;
                 border-color:#ebccd1;
+            }
+
+            #filler{
+                margin-top:20px;
+                border-top:1px solid #ccc;
+                padding-top:20px;
+                height:1000px;
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <div id="buttonsHolder">
+            <div class="buttonsHolder">
                 <button id="addSuccess">Click me to add a success notification.</button>
                 <button id="addInfo">Click me to add an info notification.</button>
                 <button id="addWarning">Click me to add a warning notification.</button>
                 <button id="addDanger">Click me to add a danger notification.</button>
+            </div>
+            <div id="filler">
+                <h2>Try scrolling down to see what happens to the notification...</h2>
+                <p>This div is a filler</p>
+            </div>
+            <div class="buttonsHolder">
+                <button id="addSuccess2">Click me to add another success notification that lives inside the filler div.</button>
+                <button id="addInfo2">Click me to add another info notification that lives inside the filler div.</button>
+                <button id="addWarning2">Click me to add another warning notification that lives inside the filler div.</button>
+                <button id="addDanger2">Click me to add another danger notification that lives inside the filler div.</button>
             </div>
         </div>
 
@@ -57,7 +78,8 @@
                 crossorigin="anonymous"></script>
         <script type="text/javascript" src="simpleNotify.js"></script>
         <script type="text/javascript">
-            var notifications = $("body").notifications({holdTime:5, animationType:"opacity"})
+            var notifications = $("body").notifications({holdTime:5, animationType:"opacity"});
+            var notifications2 = $("#filler").notifications({holdTime:5, animationType:"opacity"});
             $(function(){
                 $("#addSuccess").click(function(){
                     notifications.notify("This is a Success notification.", "success");
@@ -70,6 +92,19 @@
                 });
                 $("#addDanger").click(function(){
                     notifications.notify("This is a Danger notification. Also this one is vibrating for more impact! :D", "danger", 1);
+                });
+
+                $("#addSuccess2").click(function(){
+                    notifications2.notify("This is a Success notification that lives inside the filler div.", "success");
+                });
+                $("#addInfo2").click(function(){
+                    notifications2.notify("This is an Info notification that lives inside the filler div.", "info");
+                });
+                $("#addWarning2").click(function(){
+                    notifications2.notify("This is a Warning notification that lives inside the filler div.", "warning");
+                });
+                $("#addDanger2").click(function(){
+                    notifications2.notify("This is a Danger notification that lives inside the filler div. Also this one is vibrating for more impact! :D", "danger", 1);
                 });
             });
         </script>
