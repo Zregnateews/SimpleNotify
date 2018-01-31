@@ -1,5 +1,5 @@
 # SimpleNotify
-Simple plugin to make easy notifications.
+Simple plugin to make easy notifications (inspired by bootstrap alerts).
 
 ## To initialize a notification use:
 
