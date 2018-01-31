@@ -26,10 +26,11 @@ Init parameters: Call it on the element where the notifications will be lodged, 
 ## Public Methods:
 
 ### notify: 
-    Parameters:
-        message: **[string]** (The message you want to pass. Can have html)
-        elclass: **[string]** (The class that defines the color of the alert, current options are: “success” green, “info” blue, “warning”    yellow, “danger” red)) - default: “success”
-        vibrate: **[int]** (Sets the vibrating interval for the notification) - default null 
-    Usage: notifications.notify(message[string], elclass[string], vibrate[int]);
+
+Parameters:
+    message: **[string]** (The message you want to pass. Can have html)
+    elclass: **[string]** (The class that defines the color of the alert, current options are: “success” green, “info” blue, “warning”    yellow, “danger” red)) - default: “success”
+    vibrate: **[int]** (Sets the vibrating interval for the notification) - default null 
+Usage: notifications.notify(message[string], elclass[string], vibrate[int]);
 
 notifications.notify("This is a Danger notification. Also this one is vibrating for more impact! :D", "danger", 1);
